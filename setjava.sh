@@ -27,10 +27,6 @@ fi
 echo ""
 echo ""
 echo "Changing JVM in current session to version: " $NEW
-
-
-# set java version locally, i.e. only for current session
-
 echo ""
 echo ""
 echo "-[BEFORE]---------------------------------------"
@@ -41,6 +37,8 @@ JAVA_HOME_OLD="$HOME/apps/java${OLD}"
 JAVA_HOME_NEW="$HOME/apps/java${NEW}"
 export JAVA_HOME=$JAVA_HOME_NEW
 
+
+# remove path to old jdk from beginning of $PATH
 PREFIX_TO_REMOVE=${JAVA_HOME_OLD}/bin
 #echo "PATH: ${PATH}" 
 echo "PREFIX_TO_REMOVE: ${PREFIX_TO_REMOVE}"
@@ -51,11 +49,13 @@ then
   PATH=${PATH:$LEN}
 fi
 
+# if path to new java is not already at the beginning of $PATH, add it
 if [[ $PATH != "$JAVA_HOME_NEW"* ]]
 then
   export PATH=$JAVA_HOME/bin:$PATH
 fi
 
+# show result as a way to check if it worked
 echo "-[AFTER]---------------------------------------"
 echo "JAVA_HOME : ${JAVA_HOME}"
 echo "PATH      : ${PATH}"
@@ -65,3 +65,4 @@ echo "-----------------------------------------------"
 echo ""
 echo ""
 
+ 
