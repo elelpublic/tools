@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# switch between jdk 8 and jdk 17 in current session only
 # keep it here: https://github.com/elelpublic/tools.git
 
 if [[ $1 == "" ]]
