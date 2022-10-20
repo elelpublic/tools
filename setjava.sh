@@ -64,5 +64,8 @@ java -version
 echo "-----------------------------------------------"
 echo ""
 echo ""
+echo "!!! remember to call this script to affect your session: !!!"
+echo ". setjava X"
+echo ""
+echo ""
 
- 
